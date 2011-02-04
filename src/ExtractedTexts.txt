@@ -1,0 +1,724 @@
+Whatever		
+nahnahanah
+General Objectives
+To implement an offline character recognition of scanned images or texts of at most 3 font styles
+Specific Objectives
+To extract the feature points of each character samples 
+To identify characters based on features that are somewhat similar to the features humans use to identify characters 
+To create a full text representation of those scanned documents
+What is OCR
+Offline OCR, optical character recognition refers to the branch of computer science that involves reading text from paper and translating the images into a form that the computer can manipulate (for example, into ASCII codes).
+Some OCR Applications
+Indexing
+Full text retrieval
+Full text representation
+Full text representation with XML mark-up
+How OCR Works
+How OCR Works
+General Approach
+Learning
+Back propagation
+	     8 input units -> 8 hidden units -> 6 output layers
+	26 – A-Z
+	10 – 0-9
+
+An image file with the desired characters is created and a text file representing the characters in this image file.
+Learning
+Start
+Stop
+Character
+Extract feature points
+Corresponding feature points for each character
+Recognition Process
+Threshold
+An image processing technique that minimizes image noise and can convert the text as black and its background as white for easier processing.
+		
+
+
+
+
+		Before				   After
+Recognition Process
+Character Extraction
+Detection of lines of text
+Detection of connected components
+Projection upward and downward to grab dots on "i"s and "j"s
+Character Extraction
+Line Detection
+Horizontal projection
+ adjacent lines in the image having a very small number of pixels constitute a line break.
+Component Extraction
+Starting at the upper right corner of each line, remove touching intervals of black pixels from the run-length-encoded representation of the image until nothing more connected can be found. 
+Character Property Extraction
+Feature point extraction happens
+A feature point is a point of human interest in an image, a place where something happens. It could be an intersection between two lines, or it could be a corner, or it could be just a dot surrounded by space. Such points serve to help define the relationship between different strokes.
+Feature Point Extraction
+If a pixel is on, its eight neighbors are checked.
+
+
+Since each neighbor can also only be on or off, there are merely 256 possible combinations of neighborhoods.
+
+
+
+Feature Point Extraction
+Extracting feature points thus reduced to calculating a number between zero and 256 to describe a pixel's neighborhood and then comparing that number against a table of known feature points (see Table 1, "Enumeration of Possible Pixel Neighborhoods").
+Recognition Process
+Comparison of Learned & Extracted Characters
+it sums the squares of the differences between each property in the extracted character and each property in the learned character, returning a "Confidence"
+Recognition Process
+Matching Confidence
+Additional Operations on Low-Confidence Matches
+Splitting Wide Characters
+Ex.	ri -> n
+If the confidence of the left side of the split higher than before, the character is assumed to be joined, and the split remains. Otherwise, the split is rolled back.
+Merging Narrow Characters
+An "r" might be split down the middle, leaving an "l"-like figure on the left, and something incomprehensible on the right.
+If merging results a higher confidence, merging remains
+
+
+Recognition Process
+
+THANK YOU!
+References
+Eric W. Brown Character Recognition by Feature Point Extraction
+http://www.webopedia.com/TERM/O/optical_character_recognition.html
+http://iwayinfosoft.com/onlinedataentry.html 
+http://www.techfuels.com/scanner/1583-optical-character-recognition.html  
+http://www.eecs.berkeley.edu/~fateman/kathey/char_recognition.html
+http://www.ccs.neu.edu/home/feneric/charrec.html#bourbakisgumahad
+http://www.ccs.neu.edu/home/feneric/charrec.html#table1
+
+*
+*
+*
+*
+*
+
+~***~
+OFFLINE OPTICAL CHARACTER RECOGNITION WITH FEATURE POINT EXTRACTION
+
+General Objectives
+To implement an offline character recognition of scanned images or texts of at most 3 font styles
+Specific Objectives
+To extract the feature points of each character samples 
+To identify characters based on features that are somewhat similar to the features humans use to identify characters 
+To create a full text representation of those scanned documents
+What is OCR
+Offline OCR, optical character recognition refers to the branch of computer science that involves reading text from paper and translating the images into a form that the computer can manipulate (for example, into ASCII codes).
+Some OCR Applications
+Indexing
+Full text retrieval
+Full text representation
+Full text representation with XML mark-up
+How OCR Works
+How OCR Works
+General Approach
+Learning
+Back propagation
+	     8 input units -> 8 hidden units -> 6 output layers
+	26 – A-Z
+	10 – 0-9
+
+An image file with the desired characters is created and a text file representing the characters in this image file.
+Learning
+Start
+Stop
+Character
+Extract feature points
+Corresponding feature points for each character
+Recognition Process
+
+
+Threshold
+An image processing technique that minimizes image noise and can convert the text as black and its background as white for easier processing.
+		
+
+
+
+
+		Before				   After
+Recognition Process
+
+
+Character Extraction
+Detection of lines of text
+Detection of connected components
+Projection upward and downward to grab dots on "i"s and "j"s
+Character Extraction
+
+Line Detection
+Horizontal projection
+ adjacent lines in the image having a very small number of pixels constitute a line break.
+
+Component Extraction
+Starting at the upper right corner of each line, remove touching intervals of black pixels from the run-length-encoded representation of the image until nothing more connected can be found. 
+
+Character Property Extraction
+Feature point extraction happens
+A feature point is a point of human interest in an image, a place where something happens. It could be an intersection between two lines, or it could be a corner, or it could be just a dot surrounded by space. Such points serve to help define the relationship between different strokes.
+
+Feature Point Extraction
+If a pixel is on, its eight neighbors are checked.
+
+
+Since each neighbor can also only be on or off, there are merely 256 possible combinations of neighborhoods.
+
+
+
+
+
+
+
+
+Feature Point Extraction
+Extracting feature points thus reduced to calculating a number between zero and 256 to describe a pixel's neighborhood and then comparing that number against a table of known feature points (see Table 1, "Enumeration of Possible Pixel Neighborhoods").
+Recognition Process
+
+
+Comparison of Learned & Extracted Characters
+it sums the squares of the differences between each property in the extracted character and each property in the learned character, returning a "Confidence"
+Recognition Process
+
+
+Matching Confidence
+Additional Operations on Low-Confidence Matches
+Splitting Wide Characters
+Ex.	ri -> n
+If the confidence of the left side of the split higher than before, the character is assumed to be joined, and the split remains. Otherwise, the split is rolled back.
+Merging Narrow Characters
+An "r" might be split down the middle, leaving an "l"-like figure on the left, and something incomprehensible on the right.
+If merging results a higher confidence, merging remains
+
+
+
+Recognition Process
+
+
+
+
+THANK YOU!
+References
+Eric W. Brown Character Recognition by Feature Point Extraction
+http://www.webopedia.com/TERM/O/optical_character_recognition.html
+http://iwayinfosoft.com/onlinedataentry.html 
+http://www.techfuels.com/scanner/1583-optical-character-recognition.html  
+http://www.eecs.berkeley.edu/~fateman/kathey/char_recognition.html
+http://www.ccs.neu.edu/home/feneric/charrec.html#bourbakisgumahad
+http://www.ccs.neu.edu/home/feneric/charrec.html#table1
+
+
+~***~
+
+
+
+RIGHT FOOT OPERATION	THERBLIGS	LEFT HAND	OPERATION	ELEMENTS	THERBLIGS	RIGHT HAND OPERATION	TIME	LEFT FOOT OPERATION
+Hold the shovel and load the mixture to the 	“sampan”	Walk ,get and load the mixture to the “sampan”							Get the shovel	load the mixture to the “sampan”	return the shovel		
+get the metal bar	Walk and get the metal bar		get the metal bar		
+Place the metal bar to the machine	Place the metal bar to the machine		Place the metal bar to the machine		
+Pull the “sampan” towards the operator	Pull the “sampan” towards the operator		Pull the “sampan” towards the operator		
+Turn on the machine	Regulate the machine(push and pull)	Turn on and regulate the machine(push and pull)		Turn on the machine	 Regulate the machine (push and pull)		
+tap the top part of the mixture	Turn off and tap the top part of the mixture		Turn off the machine		
+Push down the stamp bar		Push down the handle bar	Push down the stamp bar and the handle bar  		Push down the handle bar		Push down the stamp bar
+Get the concrete hollow blocks (CHB-4).	Place to the curing area	Get the concrete hollow blocks(CHB-4).Place to the curing area		Get the concrete hollow blocks (CHB-4).	Place to the curing area		
+
+
+~***~
+The recognition of machine printed characters having numerous applications in various fields attracted equally numerous algorithms to do the task. However the identification of these machine printed characters faces hindrances like the noise that the image is bringing and the variation of font styles among others. This paper explores the application of feature point extraction to the problem of recognizing machine printed characters in an automated manner. Specifically, feature point extraction is used as an algorithm to identify the character under study based on its properties or feature points, not just its shape.
+
+
+~***~
+heysoulsisteraint0.01.02.03.04.0on thefirst dayof christmasheysoulsisteraint0.01.02.03.04.0on thefirst dayof christmasheysoulsisteraint0.01.02.03.04.0on thefirst dayof christmas
+~***~
+Serial No.Social Media SitesUsernameE-mailBacklinksURLKeywords/TagsExample 1http://www.folkd.com/bads928bads928@gmail.comhttp://www.folkd.com/url/webxcebu.com%2Fnews%2F37%2Fadobe-announces-business-catalysthttp://www.webxcebu.com/Example 2http://digg.com/dashawkdashawk@ymail.comhttp://digg.com/news/business/best_hiking_tents_camping_tents_in_australiahttp://www.besthikingtents.com.au/best hiking tents, hiking tents, camping tents, camping tents in australiaExample 3http://www.delicious.com/webxpress8webxpress8@gmail.comhttp://www.delicious.com/webxpress8/internet-marketing-websiteshttp://bestinternetmarketingwebsites.com/internet-marketing-websites internet-marketing best-internet-marketing1.0http://twitter.com/rinkaku91prettykaren_15@yahoo.comhttp://twitter.com/#!/rinkaku91/status/7749523984097280http://www.besthikingtents.com.au/2.0http://digg.com/rinkaku91prettykaren_15@yahoo.comhttp://digg.com/news/lifestyle/black_wolf_2_person_mantis_ii_hiking_tent_for_campinghttp://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/3.0http://stumbleupon.com/prettykaren_15prettykaren_15@yahoo.comhttp://www.stumbleupon.com/favorites/tag/camping/http://www.besthikingtents.com.au/4.0http://reddit.com/rinkaku91prettykaren_15@yahoo.comhttp://www.reddit.com/r/reddit.com/comments/ebl8z/best_hiking_tents_camping_tents_in_australia/http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/5.0http://del.icio.us/prettykaren_15prettykaren_15@yahoo.comhttp://www.delicious.com/prettykaren_15/Backpackhttp://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/6.0http://mixx.com/7.0http://mister-wong.de/8.0http://rojo.com/9.0http://folkd.com/10.0http://mister-wong.com/11.0http://indianpad.com/12.0http://a1-webmarks.com/13.0http://connotea.org/14.0http://buddymarks.com/15.0http://shoutwire.com/16.0http://simpy.com/17.0http://cloudytags.com/18.0http://givealink.org/19.0http://oldrec.com/20.0http://linkroll.com/21.0http://sitejot.com/22.0http://tweako.com/23.0http://megite.com/24.0http://saveyourlinks.com/25.0http://favoor.com/26.0http://connectedy.com/27.0http://sync2it.com/28.0http://feedmarker.com/29.0http://i89.us/30.0http://webride.org/31.0http://wikio.com/32.0http://de.lirio.us/33.0http://netvouz.com/34.0http://clipclip.org/35.0http://startaid.com/36.0http://linkroll.com/37.0http://bringr.com/38.0http://gabbr.com/39.0http://buddymarks.com/40.0http://blogs.com/41.0http://blogmarks.net/42.0http://faves.com/front43.0http://linkagogo.com/44.0http://buzka.com/45.0http://plurk.com46.0http://friendfeed.com/47.0http://startaid.com/48.0http://koolontheweb.com/49.0http://siteslike.com/50.0http://krumlr.com/51.0http://edutagger.com/52.0http://sqworl.com/53.0http://bmaccess.net/54.0http://bukmark.net/55.0http://digmypage.com/56.0http://linkarena.com/57.0http://mysitevote.com/58.0http://oyax.com/59.0http://sitejot.com/60.0http://socialogs.com/61.0http://spurl.net/62.0http://tagza.com/63.0http://totalpad.com/64.0http://43things.com/65.0http://linkfilter.net/66.0http://feedalley.com/67.0http://de.lirio.us/68.0http://fark.com/69.0http://technorati.com/70.0http://tumblr.com/71.0http://jaiku.com/72.0http://socialnetwork.in/73.0http://profilactic.com/74.0http://iminta.com/75.0http://linkedin.com/76.0http://socialurl.com/default.aspx77.0http://qype.co.uk/78.0http://twitxr.com/79.0http://viviti.com/80.0http://wink.com/81.0http://yokway.com/82.0http://vi.sualize.us/83.0http://lijit.com/84.0http://listsofbests.com/85.0http://kirtsy.com/86.0http://orkut.com87.0http://google.com/buzzmaemabulaymaemabulay@gmail.comhttp://www.google.com/buzz/100467838697992553220/jDApFbgYBBD/http-www-besthikingtents-com-au-products-25-EPEhttp://www.besthikingtents.com.au/products/25/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New/88.0http://identi.ca/89.0http://tagtooga.com/db.tag90.0http://mixx.com91.0http://delicious.com/prettykaren_15prettykaren_15@yahoo.comhttp://www.delicious.com/prettykaren_15/Backpackhttp://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/92.0https://google.com/bookmarks/lmaemabulaymaemabulay@gmail.comhttp://www.google.com/buzz/100467838697992553220/jDApFbgYBBD/http-www-besthikingtents-com-au-products-25-EPEhttp://www.besthikingtents.com.au/products/25/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New/93.0http://folkd.com94.0http://bookmarks.yahoo.com/prettykaren_15prettykaren_15@yahoo.comhttp://buzz.yahoo.com/article/1:8d17ca234375d7d488fbb6e5e09120f4:c6ada6f07fa34d6742832aa0f2b25f24/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New?usc=1http://www.besthikingtents.com.au/products/25/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New/95.0http://kwout.com/96.0http://tagz.in/97.0http://metafilter.com/98.0http://jumptags.com/99.0http://designfloat.com/100.0http://buzzflash.net/101.0http://hotklix.com/102.0http://lintasberita.com/103.0http://humsurfer.com/104.0http://yapod.com/105.0http://linkinn.com/106.0http://jackpea.com/107.0http://plime.com/108.0http://bookmarkriver.info/109.0http://fwisp.com/110.0http://socialogs.com/111.0http://moolets.com/112.0http://kwzz.com/113.0http://swik.net/114.0http://blogengage.com/115.0http://givealink.org/main/show116.0http://sinocmo.com/117.0http://shetoldme.com/118.0http://jeqq.com/119.0http://fwisp.com/120.0http://googletop.net/maemabulaymaemabulay@gmail.comhttp://www.google.com/buzz/100467838697992553220/jDApFbgYBBD/http-www-besthikingtents-com-au-products-25-EPEhttp://www.besthikingtents.com.au/products/25/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New/121.0http://pfbuzz.com/122.0http://tagged.com/123.0http://yahoo.com/prettykaren_15prettykaren_15@yahoo.comhttp://buzz.yahoo.com/article/1:8d17ca234375d7d488fbb6e5e09120f4:c6ada6f07fa34d6742832aa0f2b25f24/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New?usc=1http://www.besthikingtents.com.au/products/25/EPE-Exodus-75L-Travel-Back-Pack-Rucksack-Hiking-Bag-New/124.0http://photobucket.com/125.0https://posterous.com/126.0http://myyearbook.com/127.0http://streetmavens.com/128.0http://status.net/129.0http://flickr.com/130.0https://yammer.com/131.0http://multiply.com/prettykaren_15prettykaren_15@yahoo.comhttp://rinkaku91.multiply.com/links/item/1/Black_Wolf_2_Person_Mantis_II_Hiking_Tent_for_Campinghttp://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/132.0http://youare.com/133.0http://bebo.com/134.0http://plaxo.com/135.0http://jaiku.com/136.0http://brightkite.com/137.0http://wordpress.com/138.0http://facebook.com/pages/prettykaren_15prettykaren_15@yahoo.comhttp://www.facebook.com/l.php?u=http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/&h=9d2f6http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/139.0http://facebook.com/prettykaren_15prettykaren_15@yahoo.comhttp://www.facebook.com/l.php?u=http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/&h=9d2f6http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/140.0http://aim.com/141.0http://google.com/talk/142.0http://myspace.com/143.0http://plurk.com/144.0http://dropjack.com/145.0http://twitwall.com/146.0http://diigo.com/147.0http://www.friendster.com/prettykaren_15prettykaren_15@yahoo.comhttp://www.friendster.com/shoutoutstream.php?uid=23241685http://www.besthikingtents.com.au/products/14/Black-Wolf-2-Person-Mantis-II-Hiking-Tent-for-Camping/
+~***~
+wella - a fierce vindicive scribble of blue
+wella
+a fierce vindicive scribble of blue
+About
+Tags
+Archive
+Search
+Loue Vill
+i hate writing my bio. i hate introducing myself to anyone. i hate saying my name is...and i'm....i'm taking up....i hate it :D
+Follow this site »
+You're following this site (Edit)
+You're a contributor here (Edit)
+This is your site (Edit)
+Subscribe by email »
+Get the latest updates in your email box automatically.
+Subscribe via RSS »
+Tags tiumpenz codrschool project research topic aphasia bloopers homily Religion Scribble Stress
+Archive
+2010 (9)
+August (4)
+July (5)
+Edit
+Delete
+Autopost
+Laag with Tiumpenz
+I don't really like going to malls without anything really important to do. By "not important", I mean laag lang. Last Wednesday however, I joined Tiumpenz in their laag laag. "Karon ra bitaw ni", I said to myself. We ate a lot, took pictures, ate a lot and watched movie. The movie was not great, the people around was. Haha, Sukob ra man sad to among gi-tan-aw oe, katong tag 15 sa SM. I've seen it already so there was no thrill anymore. (haha, pero nagpakuyog ko sa CR kay nahadlok?). The people were shouting their lungs out as if in real horror. I joined them in their shouting and after every shout, we laughed!
+Click here to download: laag-with-tiumpenz-dvdxwxwrJtzyDpprluAo.zip (142 KB)
+Click here to download: laag-with-tiumpenz-FhgJDqintBgimCHgeIJp.zip (792 KB)
+Posted
+Tweet
+Filed:
+tiumpenz
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+The river runs dry..so is my patience
+I thought I was the most patient creature on earth. You could fool me and make fun of me and that would be fine. You would still find me smiling and even laughing with you in your jokes be it offensive or not. But I have my limits. I really hate to be ridiculed in front of many people. You could imagine what I would feel if I'm ridiculed in front of the whole world. I recently released my outbursts. Good thing or not? Yet to find out...
+Posted
+Tweet
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+Tagalugin mo
+This month is Buwan Ng Wika. I'm really laughing hard right now that I remember my classmates, ilyn, ets, maggie and others trying to say things in tagalog.
+I should have written this in tagalog but nah, I'm no good! But I'm practicing through the uploaded docs below. Pero bai, nag nosebleed ko. Try it!
+You must have flash to see this embedded document. (download)
+Click here to download: tagalugin_mo_(1)_no_anser.XLS (47 KB)
+I don't know who is the author of this one. I'm sorry if I can't give credits to the owner. Pero maraming salamat po kung sino ka man. Naaliw po ako at nabaliw sa kaiisip. :P
+Posted
+Tweet
+Filed:
+tiumpenz
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+Bloopers--Laughing at my mistakes :D
+Others say I'm tanga but I say I'm just malas. :P
+My text for Mama
+I sent a text message to my mama saying that I won't be home early. After I hit the send button, I heard my own phone ring and bang! The message was sent to myself. :D
+On our way home after taking the Phil-IT
+We were five who took the Phil-IT (ten, including the 5 other IT people). I was thinking where was the fifth one when Ligemm and Jaggie had gone together on a date (it's their anniversary date :D), and mimi and romrom were with me while walking at that street near E-mall. Then before I could ask mimi who is the fifth one, I remembered that I failed to count myself in. Must be an aftereffect of that heart-aching exam! |-(
+Web Chateau Internet cafe, padung gawas I pushed the door out but it's not moving. More force and nothing happened still. Then I realized that I'm on the wrong side. I should have pushed the leftmost side of the door..not the rightmost side where it is adjoining the wall.
+At work in codrschool.
+Mimi asked me to open her yahoo mail and do things. My yahoo account is currently logged on via chrome, so I opened her yahoo mail via Firefox and did things. After several minutes of working things for our project, I noticed that my Yahoo mail in Chrome said that mimi is online. So I chatted her with these: Sus, gisugo sugo pa ko niya ug pa-open sa iyang mail, unya nag online ra diay to siya. busy ra ba kunohay ko. |-(
+Work continues...Then I maximized the Firefox window and bang! I realized that she was just online because I forgot to log out her account.
+*this thing happened to me twice. On the second time, I told myself, "you never learned."
+The list is endless. That list above is just the most recent.
+Posted
+Tweet
+Filed:
+bloopers
+codrschool
+Views
+and 5 Comments
+Edit
+Delete
+Autopost
+My Special Project
+My topic is temporarily entitled "Email System for People With Aphasia", credits to Dr. Christiane D. Fellbaum for the idea.
+I already edited this intro and got a "very good" comment from my very brilliant mentor, Dr. Elmer Maravillas. Additional comments are always welcome...:D
+You must have flash to see this embedded document. (download)
+Click here to download: EMAIL_SYSTEM_FOR_PEOPLE_WITH_APHASIA.doc (722 KB)
+While I have tried very hard to cite all my sources, there may still be ideas there that I failed to put in my citations. If you spotted one, please comment. Thank you.
+Posted
+Tweet
+Filed:
+aphasia
+project
+research topic
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+The Homily
+"Do you pray?", asked the priest. I said to myself almost immediately, "Yes, of course." The people around me must have said the same thing. After a while the priest asked again, "Why do you pray?" Silence. Why do I pray? I can't make up the words or perhaps I don't even know. Here's what he said:
+"We pray because we need God, because we are His slaves and He is our God. We pray because we are only dependent of heaven's mercy, of His mercy."
+He has said a lot more things about why we pray. Then, he throwed the next question. "How do you pray?" Again, silence. I can't say the way I pray. He said that we should pray not for ourselves but for our neighbors. We pray for the good of us all. Just like what the gospel today is saying, we say,
+"Father, hallowed be your name, your kingdom come. Give us each day our daily bread and forgive us our sins for we ourselves forgive everyone in debt to us, and do not subject us to the final test."
+The priest has explained the seven parts of the Lord's Prayer. Three parts are for the Lord and the other four parts are for our neighbors. I will specifically emphasize the fourth part as it is emphasized by the priest. "Give us this day our daily bread." Some of you may not know that the "bread" there does not only refer to the food that we need, but also to the shelter, the clothing, the water and the air. It basically refers to all our basic and material needs. "Give us THIS DAY our DAILY BREAD." Why just this day? Why not "Give us this day our bread for 10 years"? The priest said that we only ask for what we need today so that we will pray again tomorrow.
+Pray. Pray and do it rightly. It is in the state of comfort, that we forget to pray. If we are in our comfort zones and if we claim that we are self-righteous, we don't feel the need to pray. It has been said that God always answers our prayers. Yes, He answers our prayers but sometimes it is a NO because the thing that we pray is not good for us and/or He has a better plan in store for us.
+The priest has also mentioned about being in the path that God has laid for us. If you are not happy, then perhaps you are not trudging the path that is especially paved for you. Sometimes, what makes us unhappy are those things that we failed to have.
+It is also in today's gospel that whoever asks will receive. We just have to ask and that's all. "Man only proposes. It is God who disposes," the priest said. Forever and always, it is His will that shall be done here on earth as it is in heaven. The priest further said in conclusion, "If you cannot get what you want, be happy with what you get. Pray for others and pray rightly for others."
+Posted
+Tweet
+Filed:
+homily
+Religion
+Views
+and 2 Comments
+Edit
+Delete
+Autopost
+Only say the word and I shall be healed
+I just got a mistake that I would probably regret for the rest of my life. In my entire life, I consider and recognize only two mistakes. The first one was back in high school and the last one was just recently. I wouldn't discuss the details but I would say that the latest mistake had brought me down into depression. I seldom get depressed. You see, most people say I'm a cheerful person. But when I get depressed, I have a tendency of hurting myself. I do my self-imposed punishment...sometimes physical. But recently, I went beyond physical. I didn't do some of my lab activities. I didn't attend some of my classes. And it hurt me so much when I saw that I was falling down in my studies. Yet, I know I deserve it. It wasn't me at that time. It wasn't me at all. Any scribbling can't take the negativities away. I was aware that it can ruin me, so I immediately (not so immediately really, the damage seemed irreversible) seek the help of my guidance counselor. I don't know if the psychological help had really healed me deep down because there is still this heavy thing in my chest every time I think about what I failed to do--about that mistake. Only his forgiveness can. Please say the world and I shall be healed. |-(
+Posted
+Tweet
+Filed:
+Stress
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+Choosing a research topic
+A week before last week, everyone in the class (except me, hehe) had been very busy choosing his topic for the special project. They'd been complaining how hard it is to choose a topic. Well, I know it isn't really something that you would decide instantly. One wrong decision, and you'll be in agony for the whole sem. That might be one of the things that's in the head of my classmates that's why they found it very difficult to decide.
+I think we're kind of in a tight situation right now.
+It was in maggie's note. She discussed many things about choosing a topic and it really helped.
+and to show you more how hard it was:
+Credits to Ethileen Irese Eborra for those pictures.
+The only thing that had made me calm while others were panicking was the thought that I know what I want. I know what interests me and I would pursue that interest as a study otherwise it would be an agony going through. I could have been one of them in their panic but I was brainwashed. Yes, I was brainwashed (that's their term, I'm adopting it :D) by the people in CodrSchool, the place where I had my OJT. Well, no one could really dictate me (except my tyrant mother hehe, but I get my ways). I'm a hard headed person. I could be shy and silent at first glance but I am very very stubborn. I'm off track again...:D
+So how do I pick mine? Well, I first narrowed my options to the things that really interest me. These include mobile applications, anything related to music like music note generator, and anything related to healthcare. But when Dr. Christiane Fellbaum suggested a software for aphasia here. I instantly decided to go for it. It was what I'm looking for--something that would be useful to aphasic people (to a dear one specifically), something that's personal. And here I am currently looking for aphasic people to test the yet-to-be implemented email system for people with aphasia. I will be posting the yet-to-be decided functionalities of this email system soon.
+My basis for my topic were:
+1. It is something that interests me;
+2. It is something that is beneficial to someone dear to me;
+3. It is something that would require me to interact with the aphasic people.
+I don't know the degree of difficulty of this one, but I'm sure I would love delving into it.
+Posted
+Tweet
+Filed:
+codrschool
+project
+research topic
+tiumpenz
+Views
+and 0 Comments
+Edit
+Delete
+Autopost
+Scribble, it works!
+Scribbling has always been my way of expressing stress. It has been my best friend since I was like high school and has always kept me sane (insane to the people watching). I usually do my scribbles in private where no one could see me scribble like a fool. If you know Kira of death note and has seen him while scribbling names on his death note, you can consider the image as like mine when I'm also scribbling. At one time, when I'm scribbling out of frustration, somebody has seen me and was laughing real hard as she remembered Kira in me. No, I'm not a fan of Kira. I am to El. Oh, I'm off the topic. Anyway, to help me back on track:
+“To withdraw myself from myself has ever been my sole,
+my entire, my sincere motive in scribbling at all.”
+That was said by Lord Byron. It holds true to me...and well, to some people too. It was during those times of boredom, confusion, fear, panic, stress, frustration, and anxiety that the evil me is struggling to take control of my mind. And so, the sane me would just try to scribble the negativities off...and wooott it really works. It never failed to pacify me.
+Scribbling is a free write, no grammars, no structure. It's a free-write for your free-flowing thoughts. It is the thought of an empty mind. Really, I empty my mind to be able to scribble. Thoughts come naturally as if my brain has transfered to my right hand or my right hand has a mind of its own. Either way, I can't control the strokes of my hand that make up the writings. Then it's there, the thoughts, the scribble...off the stress goes after a moment of gasping from the fast-paced ride of my scribbling. :)
+*note: this post isn't scribbled until the last paragraph. (With a little editing. I don't really want to post my scribbled thoughts so I edited it a bit so it would look like a paragraph and not like the floating words of the Google gravity. I never thought that I could do a scribble with my keyboard. I always thought that it is only through a pen and a paper) :D
+Posted
+Tweet
+Filed:
+Scribble
+Views
+and 0 Comments
+Fans (1)
+Fans (1)
+1 of 1
+Home / RSS / Powered by Posterous / M82 Theme by Airspace Workshop
+
+~***~
+..sprinkles of life..
+..sprinkles of life..
+Home
+Archive
+Random
+Subscribe
+Search:
+I'm Ilyn Rose Robledo Abletes, 19 years of age. I'm currently a fourth year Computer Science student of Cebu Institute of Technology - University. ^__^
+Likes: singing, playing ball games, surfing the net, dancing.. ;)
+loves moniegold, raisins, marshmallows, etc.. :D
+4th February 2011
+super cute! <3 like i like it and i like it! :D HAHA, Crazy Little Thing Called LOVE <3<3<3
+4th February 2011
+This girl is sooo gwapaaaa sad ai! :D
+4th February 2011
+This guy is sooo gwapuuuuu bah! :D
+25th November 2010
+Best Hiking Tents & Camping Tents in Australia →
+The latest model of Caribee for 2010 is a 3 in 1 backpack which you can take everywhere you go. It can be a wheeled luggage but can also be easily
+7th November 2010
+WORRIES, please go away! ;(
+is worried! i am worried! not for myself but for those people i cared and loved most. LORD, please help! erase all the worries i feel. i shouldn’t be feeling this way. the more i’m looking troubled, the more it can affect them. basta LORD, i know he will be alright. just allow him to accept and open his heart for healing and change.. LORD, heal him.. not only him but also to those people i value most. LORD, i lift up those people to You. allow Your healing grace to pour upon them. May Your great will be done! kaw na bahala LORD! thank you! ILOVEYOU LORD!
+28th September 2010
+doubt! ;( sept.28
+there I go again! questioning myself!
+aren’t all of these things enough for me to believe that they are all planned?
+what else do i want?
+i’m tired of it!
+i don’t want this emotion to ruin my entire life..
+ERASE THE FEAR, INSECURITIES, ANGER, GRUDGE, HURT AND ALL OTHER NEGATIVITIES I HAVE RIGHT NOW!
+PUT ON ALL THE POSITIVES IN MY LIFE..
+FATHER GOD,
+allow me to always feel the greatness in YOU..
+allow me to be always reminded of how awesome YOUR LOVE is for us!
+allow me not to question myself anymore for it is just as if i’m also questioning YOU..
+allow me to be constantly empowered by YOUR amazing strength..
+allow me to have trust in myself and never doubt again..
+allow me to build a firm faith in YOU..
+and most of all, allow me to be humbled down every time i do something..
+YES, FATHER GOD! i maybe always questioning and doubting myself, but i know one thing is for sure, YOU are a VERY GREAT GOD and YOU HAVE SET A PLAN FOR MY LIFE! i may not be recognizing by this time how much YOU are trying to fully build my future life, but in every second of my life, I’VE ALWAYS BEEN BLESSED AND THANKFUL FOR ALL OF THOSE!
+this is not about me. this is all about YOU! this is not about my own capabilities, this is all about YOUR capabilities shared within me. i may feel unsecured sometimes but i know for sure, MY LIFE IS ALL YOURS!
+GUIDE ME FATHER GOD TO THE PATH WHERE YOU WANT ME TO BE. GUIDE ME WITH THE LIGHT TO FULLY SEE THE WAY YOU WANTED ME TO TAKE AND SEE.
+ENOUGH IS ENOUGH!
+I KNOW I’M WEAK! YES! I AM VERY WEAK!
+BUT WITH GOD’S STRENGTH, I’LL BE STRONGER!
+MAY YOUR WILL BE DONE, ALWAYS AND FOREVER! ;)
+28th September 2010
+happy sad! ;) :( sept.26
+i saw him!
+was it destined?
+i was not expecting, really!
+was that a fate?
+i think i just missed him,
+that’s why i’m reacting this way!
+but seriously, i was so happy to see him..
+even if it was just for a little while..
+hhhmmmmm? it’s kinda weird..
+i’ve got this unusual feeling..
+i was so excited and nervous..
+but why?
+what’s with him?
+he is just a friend, a close friend.
+we text each other, always..
+he’s so damn feeler!
+he always makes me smile..
+OMG! it’s really weird! waaaaahhhhhhhhh!
+i shouldn’t be feeling this way!
+it’s impossible, very impossible!
+there you go!
+i should stop this, or else, i’ll be hurt!
+STOP IT AS EARLY AS NOW!..
+i know he’s got another one..
+i should be happy for him..
+we’re FRIENDS! and will just forever remain FRIENDS!
+right? ;)
+24th September 2010
+makalagot! sept.18
+i just simply hate it!
+nganu d i?
+over sad kau mu ka.strict duh!
+karon nalang nuon nga daku naku??
+syalan pud ui, makalagot!!!
+kasabot mog ganahan ko ma.divert pud panagsa akong attention?
+kapuy na kau ko..
+kasabot mog naglisod ko?
+di naku kabaw unsaon naku..
+paeta ui! karon nalang jud nuon?
+makasapot kaau ui!
+LORD TABANG! ;(
+24th September 2010
+i wasn’t hurt, i just hated what you did! :( aug.28
+NO! I wasn’t really hurt. What makes me feel this pain was the feeling of being played and fooled by those crazy times he was always there. Never did I imagine he would do that to me. I treated him well that I’m afraid to let him feel neglected. I wasn’t falling for him! I never did! I just cared for him as if he was my older brother. But what happened? He was just playing with me? Was it just a show? Oh there you go, STUPIDITY! He was a damn good actor! He was already committed but oh? he was also promising me something. What was that something? Oh well, he would come back few years from now, he would be a person that I’ll not be ashamed of and he will be the guy deserving for me. NICE ONE! It gave me a big laugh anyway. FOOLISH! isn’t he? HAHAHAHA. The next time you would see me, well, watch out my dear. I’ll not be the same ILYN you’ve known before. I’ll be the ILYN who will never believe in you anymore.
+I’m hoping to see you soon. Not because I’m missing you, but because I’ll shower you with all of my stupid questions. And take note, I wanted you to answer it, HONESTLY!
+Well, well, well, BOYS WILL ALWAYS BE BOYS! Thanks for the try, but better luck next time. HAHAHAHA.. BEST WISHES for you. SEE YOU SOON!
+24th September 2010
+sooo sad for her! T___T sept.21
+she was once a bestfriend of mine.
+i didn’t even imagine she will be like this by this time.
+i feel so sorry for her but i’ve got no choice. :(
+what can i do for help?
+i should have helped her when i’m most capable of.
+i was somewhat blaming myself for what happened to her.
+she shouldn’t be suffering those things if only i helped.. ;(
+i know that it’s all Your plan, oh LORD.
+i know You have reasons why it happened.
+i shouldn’t be blaming someone coz’ i know You planned it all.
+may Your will be done!
+← Previous page •
+Page 1 of 2
+Original design by John Oxton | Illustration by Denis Radenkovic | Modified for Tumblr by Christian Montoya | This design is released under a Creative Commons license
+~***~
+we eat and shit code » Codecampr
+Codecampr
+about us
+January 22, 2011 2
+Business of software startup and challenges of building one locally meetup By Paolo Lim in articles
+Me and Jimbo went to a startup meetup the other day. It was titled “Business of software startup and challenges of building one locally…” and it was organized by @markjeee and caresharing. It was held at G2ix Tech Bar in IT park. It was awesome, lots of people came, we all had a lot of fun, everybody was very friendly and were very eager in sharing their thoughts about startups.
+Mark giving his ever inspirational and brain-washing talk about startups
+Most of all we were able to present wheedly during the meetup. This was the first time we actually presented wheedly to a live audience, and I’m very glad we had this opportunity. Truth is, Mark actually forced me to do it, and I’m very thankful that I went through with it. I was really nervous all throughout my talk, I’m not sure if I made any sense at all, I made some pretty bad jokes (I’m straight as a stick!). An officemate told me later that I was shaking during my presentation.
+Handsome me giving the wheedly talk.
+But everyone actually applauded after the talk, so maybe it wasn’t so bad after all. And I also made people laugh, which is very important for me because I like being funny at presentations, it takes the edge of a bit and also lessens the awkwardness.
+I learned a lot during my talk, and I definitely need to work on my presentation skills. Next time I should really bring the list of points for my talk, because I usually forget the things I’m supposed to say when I start to talk in front of lots of people (or when I just talk to people in general, regardless of quantity).
+Me, Jimbo (not the one beside me, but the one far back LOL) and supporters of wheedly.
+The meetup was really fun, and I’m looking forward to the future meetups to come. I also hope we’ll get other opportunities like this so we could reach out to more people with our product and our startup.
+*photos were taken by @fredbaa
+Share:
+December 29, 2010 1
+Just a wheedly update By Paolo Lim in articles
+As most of you might already know, we released our first project out into the wild this month. Its called wheedly.com and its a site where people can share and borrow stuff with their friends. Already, over 50+ of our friends signed up to check it out. I never knew we had that many friends , probably some of them are friends of our more social friends. We are very thankful for the support they’ve given us, and we hope they continue to give us feedback so we can improve on this awesome product.
+We are very excited with the potential of this site, and we are working on lots of features and changes. Some big stuffs are:
+- Stuff rating system (vote up or down, or maybe the “like” system)
+- Recent activity page (like a news feed)
+- Public pages for stuff (so you can post information about your stuff on other sites like blogs or other social networking sites)
+- Some level of access to stuff that’s owned by friends of your friends.
+and lot’s more little stuffs here and there!
+We are very careful in considering new features since we want to make the product as valuable as possible to the world. As I mentioned in my previous posts about wheedly, we believe that this site can be of real value to people, and that it’s existence has a real sense of purpose. We believe this isn’t just a site that’s for fun, it can also be a tool for those who use it the way that it can give them value.
+So to anyone who’s willing to help us improve wheedly, click on the feedback button on the site and share your thoughts with us! Or post on our public page on facebook! Or comment on this blog! Or drop us an email at contact@codecampr.com! There’s lots of ways to get in touch with us.
+Share:
+June 30, 2010 1
+Code campers are also freelancers! By Paolo Lim in articles
+Will work for money, food, or a glass of beer!
+You got that right, aside from working on our awesome project wheedly, we are now also accepting projects. From simple websites to large serious web software, you name it!
+So if you’re looking for crazy freelancers, or know someone who is, please drop us a message at contact@codecampr.com
+Share:
+June 30, 2010 0
+kaiserestates.com By Jimbo Cortes in portfolio
+Features:
+User Management
+Image Scaling and Cropping
+Post Managent
+Image Management
+*Design provided by client
+Share:
+May 30, 2010 2
+Ruby on Rails: How to customize partials By Jimbo Cortes in tutorials
+Rails believes in the principle of DRY. It provides different ways of refraining developers from repeating themselves. One of those ways is through partials.
+I’m not gonna show you how to use partials because some sites already did a great job of showing how to use it. Instead, this tutorial will illustrate how to customize partials.
+So, if you are not yet familiar with partials, this article (click the link) is a great way to get you started.
+So let’s start customizing partials…
+This code is a partial template that displays information of an employee.
+1
+2
+3
+4
+#app/views/employees/_employee.html.erb
+<p>Name: <%=h employee.name%></p>
+<p>Address: <%=h employee.address%></p>
+The partial above can be rendered like this (there are other ways).
+1
+2
+3
+4
+#app/views/employees/show.html.erb
+<h1>Employee Information: </h1>
+<%= render :partial =>"employee", :locals => {:employee => @employee} %>
+…and this will return
+1
+2
+3
+4
+5
+#app/views/employees/show.html.erb
+<h1> Employee Information: </h1>
+<p> Name: <%=h employee.name%> </p>
+<p> Address: <%=h employee.address%> </p>
+The problem:
+What if there are two kinds of employee, a project manager and a project leader. Each have unique attributes. A project manager has a ‘ number_of_projects ‘ attribute, while a project leader has a ‘ number_of_members ‘ attribute.
+We can’t put those two attributes together in one partial template, obviously. If we are going to pass a project manager object in a partial template that accesses an attribute unknown to the object, you’ll get an error.
+One way to solve this problem is to make two different templates. But it will violate the DRY principle. The best solution is to use partial’s :layout option.
+1
+2
+3
+4
+5
+6
+7
+#app/views/employees/show.html.erb
+<h1> Project Manager </h1>
+<%= render :partial =>"employee", :layout =>"manager" :locals => {:employee => @manager} %>
+<h1> Project Leader </h1>
+<%= render :partial =>"employee", :layout =>"leader" :locals => {:employee => @leader} %>
+1
+2
+3
+4
+#app/views/employees/_manager.html.erb
+<%= yield%> #this will render _employee.html.erb
+<p> Number of Projects: <%=h employee.number_of_projects%> </p>
+1
+2
+3
+4
+#app/views/employees/_leader.html.erb
+<%= yield%> #this will render _employee.html.erb
+<p> Number of Members: <%=h employee.number_of_members%> </p>
+1
+2
+3
+4
+#app/views/employees/_employee.html.erb
+<p> Name: <%=h employee.name%> </p>
+<p> Address: <%=h employee.address%> </p>
+the last 4 blocks of code will return . . .
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+#app/views/employees/show.html.erb
+<h1> Project Manager </h1>
+<p> Name: <%=h employee.name%> </p>
+<p> Address: <%=h employee.address%> </p>
+<p> Number of Projects: <%=h employee.number_of_projects%> </p>
+<h1> Project Leader </h1>
+<p> Name: <%=h employee.name%> </p>
+<p> Address: <%=h employee.address%> </p>
+<p> Number of Members: <%=h employee.number_of_members%> </p>
+See, we are able to display unique attributes of a Project Manager and Project Leader by using different layouts and still manage to DRY up our code by making them share the employee template that contains their common attributes.
+That’s all. If you have a better solution, we are more than willing to listen.
+Share:
+May 23, 2010 2
+How to learn Ruby on Rails By Paolo Lim in tutorials
+I’m not actually gonna give a tutorial on rails. I just wanna share some useful sources for those who are just starting to learn this framework.
+Read Agile Web Development With Rails from cover to cover. Or at least 1/3 of it, or even just enough that you finish developing the sample project given by the book. Studying this book for me is by far the most effective way to be introduced to rails.
+Though if you want a very quick way to get started, you can study the Rails Guides. It’s not very in depth, but it has enough juice to get you to making prototype projects.
+After getting to know a bit of rails, check out Railscasts for neat tips and tricks in using the framework. You can also visit Asciicasts if you’d rather read than watch.
+Then after all of that studying, why stop there? Read The Rails Way to truly master some of the stuff that make up the framework. Read the rest of this entry »
+Share:
+May 1, 2010 2
+Our move to ruby on rails By Paolo Lim in articles
+We’ve recently decided to abandon Symfony as our framework and use Ruby on Rails instead.
+This drastic change can entirely be blamed on me and my reckless curiosity. I realized that the initial motivations I had for choosing symfony has changed as we were developing our project. Some of these were:
+- use PHP since it is the “language of the web”.
+- try out symfony so that we can learn something new and this additional skill could prove useful in the future.
+- since this is just a side project, something we wanted to do just for fun, we could just take our time learning and experimenting with all sorts of stuff, since we just wanted some sort of “toy” we could play with. Read the rest of this entry »
+Share:
+April 25, 2010 1
+Wheedly By Paolo Lim in articles
+Our invitation page is now up!
+You can check it out at wheedly.com. If you want, please leave us your email there, so we can contact you as soon as wheedly is up and running, which we hope will be very soon.
+BTW moochy is now called wheedly. We got the new name from the word “wheedle” which is a very funny word. It means:
+If you say that someone wheedles, you mean that they try to persuade someone to do or give them what they want, for example by saying nice things that they do not mean.
+Share:
+April 18, 2010 4
+moochy is live! By Paolo Lim in articles
+Just joking.
+Our very hard-working co-founder, in a burst of excitement, created a very nice mockup for the home page of the site. We’re still bouncing ideas back and forth on how the layout and the flow of the site should be.
+From the mock-up, you can see already some of the features the site is going to have.
+Notes:
+- The snail logo is not final. Jimbo said it was the only nice shape he found in photoshop’s image library.
+- I am not called Pooey, I don’t have a nickname. Just Paolo.
+- Were still discussing which columns to display, since we think that certain data are very important and should be viewed in real time.
+- Moochy will be replaced with another name, since the domain moochy.com is no longer available. My bad.
+Share:
+March 27, 2010 0
+Codecampr and Codrschool By Paolo Lim in articles
+We would like to announce that we are now affiliated with Codrschool, an internship program of Caresharing Inc which started almost 3 years ago.
+To be more specific, we are now a member of Codrschool Start-ups, which aims to support local startups around town through mentorship. This is a very nice idea, because who better to guide us through creating our startup than people who’ve already succeeded doing it? And also, since I work at Caresharing, I can incorporate my learnings with my startup to my work and vice versa.
+So what stuffs are we going to do inside this group?
+Firstly, there is the mailing list, where most of the mentorship and the advice giving happens. We also like meetups, but it’s better to do the discussions online so that newcomers can read through all the stuff that’s already been talked about. If you plan to make a startup, or you’re already creating your startup, why not join us! There are lots of nice people who are willing to share their experiences and give advice.
+There are also lots of upcoming events in Codrschool as posted on their site. I know so because I’m one of the contributors to the group, so I’m really just promoting the shit that we’ve been plannig. If you can, please join one of the groups/events! Most of it has free admission, and some even with free snacks. I’m pretty sure you’ll have fun, and hopefully, also learn new stuff.
+Share:
+Older Posts
+Categories
+articles (11)
+cool stuff (1)
+portfolio (1)
+tutorials (3)
+Archives
+January 2011 (1)
+December 2010 (1)
+June 2010 (2)
+May 2010 (3)
+April 2010 (2)
+March 2010 (7)
+Top RSS Home Fifty Fifth Street theme by Tammy Hart Designs
+Powered by WordPress
+~***~
+Lessons Learned
+Lessons Learned Today
+Honesty
+Patience
+Understanding
+Lessons Learned Yesterday
+Hardwork
+Communication
+Humility
+
+
+~***~
